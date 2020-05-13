@@ -33,5 +33,10 @@
 
     .button {
         @include button(red);
+
+        &__delete {
+            position: absolute;
+            right: 25px;
+        }
     }
 }
