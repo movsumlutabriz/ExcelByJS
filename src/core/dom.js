@@ -12,6 +12,9 @@ class Dom {
         }
         return this.$el.outerHTML.trim()
     }
+    on(eventType, callback) {
+        this.$el.addEventListener(eventType, callback)
+    }
     clear() {
         this.html('')
         return this

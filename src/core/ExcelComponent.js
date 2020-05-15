@@ -4,7 +4,8 @@ import {
 
 export class ExcelComponent extends DomListener {
     constructor($root, options.listeners = {}) {
-        super($root)
+        super($root, options.listeners)
+        this.name = options.name || ''
     }
     toHTML() {
         return ''
