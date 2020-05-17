@@ -7,7 +7,7 @@ export class Toolbar extends ExcelComponent {
     super($root, {
       name: 'Toolbar',
       listeners: ['click']
-    });
+    })
   }
 
   toHTML() {
@@ -37,7 +37,8 @@ export class Toolbar extends ExcelComponent {
       </div>
     `
   }
-  onClick(event){
-    console.log('event:', event)
+
+  onClick(event) {
+    console.log(event.target)
   }
 }
