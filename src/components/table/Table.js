@@ -11,7 +11,7 @@ export class Table extends ExcelComponent {
     constructor($root) {
         super($root, {
             name: 'Formula',
-            listeners: ['input', 'click']
+            listeners: ['click', 'mousedown', 'mousemove', 'mouseup']
         })
     }
 
@@ -20,18 +20,18 @@ export class Table extends ExcelComponent {
     }
 
     onClick() {
-        console.log('onClick')
+
     }
 
     onMousedown(event) {
-        console.log('onMousemove', event.target)
+
     }
 
     onMousemove() {
-        console.log('onMousemove')
+
     }
 
     onMouseup() {
-        console.log('onMouseUp')
+
     }
 }
