@@ -1,4 +1,6 @@
-import {ExcelComponent} from '@core/ExcelComponent'
+import {
+  ExcelComponent
+} from '@core/ExcelComponent'
 
 export class Formula extends ExcelComponent {
   static className = 'excel__formula'
@@ -22,7 +24,5 @@ export class Formula extends ExcelComponent {
     console.log('Formula: onInput', event.target.textContent.trim())
   }
 
-  onClick() {
-    console.log('mk')
-  }
+  onClick() {}
 }
