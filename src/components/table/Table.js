@@ -43,7 +43,14 @@ export class Table extends ExcelComponent {
             resizeHandler(this.$root, event)
         } else if (isCell(event)) {
             const $target = $(event.target)
-            this.selection.select($target)
+            if (event.shiftKey) {
+                const $cells = matrix($target, this.selection.current).map(id => {
+                    this.$root.find(`[data-id="${id}"]`)
+                })
+                this.selection.selectGroup($cells)
+            } else {
+                this.selection.select($target)
+            }
         }
     }
 }
