@@ -83,6 +83,11 @@ class Dom {
         return this.data.id
     }
 
+    focus() {
+        this.$el.focus()
+        return this
+    }
+
     removeClass(className) {
         this.$el.classList.remove(className)
     }
