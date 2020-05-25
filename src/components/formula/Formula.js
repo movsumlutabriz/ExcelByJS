@@ -1,9 +1,5 @@
-import {
-  ExcelComponent
-} from '@core/ExcelComponent'
-import {
-  $
-} from '@core/dom'
+import {ExcelComponent} from '@core/ExcelComponent'
+import {$} from '@core/dom'
 
 export class Formula extends ExcelComponent {
   static className = 'excel__formula'
@@ -25,7 +21,9 @@ export class Formula extends ExcelComponent {
 
   init() {
     super.init()
+
     this.$formula = this.$root.find('#formula')
+
     this.$on('table:select', $cell => {
       this.$formula.text($cell.text())
     })
