@@ -3,14 +3,8 @@ const CODES = {
   Z: 90
 }
 
-// function toCell(row, col) {
-//   return `
-//     <div class="cell" contenteditable data-col="${col}"></div>
-//   `
-// }
-
 function toCell(row) {
-  return function(_, col) {
+  return function (_, col) {
     return `
       <div 
         class="cell" 
@@ -50,23 +44,22 @@ function toChar(_, index) {
 }
 
 export function createTable(rowsCount = 15) {
-  const colsCount = CODES.Z - CODES.A + 1 // Compute cols count
+  const colsCount = CODES.Z - CODES.A + 1
   const rows = []
 
   const cols = new Array(colsCount)
-      .fill('')
-      .map(toChar)
-      .map(toColumn)
-      .join('')
+    .fill('')
+    .map(toChar)
+    .map(toColumn)
+    .join('')
 
   rows.push(createRow(null, cols))
 
   for (let row = 0; row < rowsCount; row++) {
     const cells = new Array(colsCount)
-        .fill('')
-        // .map((_, col) => toCell(row, col))
-        .map(toCell(row))
-        .join('')
+      .fill('')
+      .map(toCell(row))
+      .join('')
 
     rows.push(createRow(row + 1, cells))
   }
