@@ -21,7 +21,9 @@ import {
   rootReducer
 } from '@/state/rootReducer'
 
-const store = createStore(rootReducer)
+const store = createStore(rootReducer, {
+
+})
 
 const excel = new Excel('#app', {
   components: [Header, Toolbar, Formula, Table],

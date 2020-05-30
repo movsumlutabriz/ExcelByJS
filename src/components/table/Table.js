@@ -1,9 +1,24 @@
-import {ExcelComponent} from '@core/ExcelComponent'
-import {$} from '@core/dom'
-import {createTable} from '@/components/table/table.template'
-import {resizeHandler} from '@/components/table/table.resize'
-import {isCell, matrix, nextSelector, shouldResize} from './table.functions'
-import {TableSelection} from '@/components/table/TableSelection'
+import {
+  ExcelComponent
+} from '@core/ExcelComponent'
+import {
+  $
+} from '@core/dom'
+import {
+  createTable
+} from '@/components/table/table.template'
+import {
+  resizeHandler
+} from '@/components/table/table.resize'
+import {
+  isCell,
+  matrix,
+  nextSelector,
+  shouldResize
+} from './table.functions'
+import {
+  TableSelection
+} from '@/components/table/TableSelection'
 
 export class Table extends ExcelComponent {
   static className = 'excel__table'
@@ -50,10 +65,10 @@ export class Table extends ExcelComponent {
       const $target = $(event.target)
       if (event.shiftKey) {
         const $cells = matrix($target, this.selection.current)
-            .map(id => this.$root.find(`[data-id="${id}"]`))
+          .map(id => this.$root.find(`[data-id="${id}"]`))
         this.selection.selectGroup($cells)
       } else {
-        this.selection.select($target)
+        this.selectCell($target)
       }
     }
   }
@@ -68,7 +83,9 @@ export class Table extends ExcelComponent {
       'ArrowUp'
     ]
 
-    const {key} = event
+    const {
+      key
+    } = event
 
     if (keys.includes(key) && !event.shiftKey) {
       event.preventDefault()
