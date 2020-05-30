@@ -5,14 +5,13 @@ export function createStore(rootReducer, initialState = {}) {
         type: '__INIT__'
     })
     let listeners = []
+
     return {
         subscribe(fn) {
             listeners.push(fn)
             return {
-                unsibscribe() {
-                    listeners = listeners.filter(listener =>
-                        listener !== fn
-                    )
+                unsubscribe() {
+                    listeners = listeners.filter(l => l !== fn)
                 }
             }
         },

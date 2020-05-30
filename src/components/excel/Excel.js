@@ -1,9 +1,5 @@
-import {
-  $
-} from '@core/dom'
-import {
-  Emitter
-} from '@core/Emitter'
+import {$} from '@core/dom'
+import {Emitter} from '@core/Emitter'
 
 export class Excel {
   constructor(selector, options) {
@@ -17,7 +13,7 @@ export class Excel {
     const $root = $.create('div', 'excel')
 
     const componentOptions = {
-      emitter: this.emitter
+      emitter: this.emitter,
       store: this.store
     }
 
