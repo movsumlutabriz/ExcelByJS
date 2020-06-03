@@ -1,41 +1,42 @@
 import {
-    Excel
+  Excel
 } from '@/components/excel/Excel'
 import {
-    Header
+  Header
 } from '@/components/header/Header'
 import {
-    Toolbar
+  Toolbar
 } from '@/components/toolbar/Toolbar'
 import {
-    Formula
+  Formula
 } from '@/components/formula/Formula'
 import {
-    Table
+  Table
 } from '@/components/table/Table'
 import {
-    createStore
+  createStore
 } from '@core/createStore'
 import {
-    rootReducer
-} from '@/store/rootReducer'
+  rootReducer
+} from '@/redux/rootReducer'
+import {
+  storage
+} from '@core/utils'
+import {
+  initialState
+} from '@/redux/initialState'
 import './scss/index.scss'
-import {
-    storage
-} from './core/utils'
-import {
-    initialState
-} from './store/initalState'
 
 const store = createStore(rootReducer, initialState)
 
 store.subscribe(state => {
-    storage('excel-state', state)
+  console.log('App State: ', state)
+  storage('excel-state', state)
 })
 
 const excel = new Excel('#app', {
-    components: [Header, Toolbar, Formula, Table],
-    store
+  components: [Header, Toolbar, Formula, Table],
+  store
 })
 
 excel.render()
