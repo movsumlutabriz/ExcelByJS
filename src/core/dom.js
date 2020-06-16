@@ -1,8 +1,8 @@
 class Dom {
   constructor(selector) {
-    this.$el = typeof selector === 'string'
-      ? document.querySelector(selector)
-      : selector
+    this.$el = typeof selector === 'string' ?
+      document.querySelector(selector) :
+      selector
   }
 
   html(html) {
@@ -73,10 +73,10 @@ class Dom {
 
   css(styles = {}) {
     Object
-        .keys(styles)
-        .forEach(key => {
-          this.$el.style[key] = styles[key]
-        })
+      .keys(styles)
+      .forEach(key => {
+        this.$el.style[key] = styles[key]
+      })
   }
 
   id(parse) {
@@ -97,10 +97,12 @@ class Dom {
 
   addClass(className) {
     this.$el.classList.add(className)
+    return this
   }
 
   removeClass(className) {
     this.$el.classList.remove(className)
+    return this
   }
 }
 
